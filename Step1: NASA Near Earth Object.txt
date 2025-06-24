@@ -1,0 +1,55 @@
+NASA Near-Earth Object (NEO) Tracking Project: Data Extraction and Preparation
+This project focuses on extracting and preparing Near-Earth Object (NEO) data using NASA's Asteroids NeoWs API. The goal is to collect comprehensive asteroid information, clean it for consistency, and prepare it for insertion into an SQL database for further analysis and tracking.
+
+Step 1: API Key Acquisition and Data Extraction
+The initial phase involved obtaining a NASA API key from the official api.nasa.gov website using a registered email ID. This unique key served as the authentication token to access NASA's Asteroids NeoWs API server.
+
+Using the obtained API key, a robust data extraction process was implemented. This involved:
+
+Targeted Date Range: Data was extracted for a specific range of seven days, from January 1st to January 7th.
+
+Pagination Handling: To ensure comprehensive data collection beyond single-day limits, a pagination mechanism was implemented. This allowed for sequential fetching of data across the specified date range, ensuring that all available asteroid records for each day were retrieved.
+
+High-Volume Data Collection: Approximately 10,000 asteroid data records were successfully retrieved from the API server.
+
+Step 2: Field Extraction and Data Cleaning
+From the extensive raw JSON responses received from the API, 13 specific fields crucial for asteroid tracking and analysis were meticulously extracted. These fields provide key details about each NEO:
+
+ID: Unique identifier for the asteroid.
+
+NEO Reference ID: A specific reference ID for the Near-Earth Object.
+
+Name: The official name of the asteroid.
+
+Absolute Magnitude (H): A measure of the asteroid's intrinsic brightness.
+
+Estimated Diameter (Minimum Kilometers): The minimum estimated diameter of the asteroid in kilometers.
+
+Estimated Diameter (Maximum Kilometers): The maximum estimated diameter of the asteroid in kilometers.
+
+Is Potentially Hazardous Asteroid: A boolean indicator if the asteroid is potentially hazardous.
+
+Close Approach Date: The date of the asteroid's closest approach to Earth.
+
+Relative Velocity (Kilometers/Second): The asteroid's speed relative to Earth in kilometers per second.
+
+Astronomical Miss Distance (Kilometers): The miss distance in astronomical units.
+
+Miss Distance (Kilometers): The miss distance in kilometers.
+
+Miss Distance (Lunar): The miss distance in lunar distances.
+
+Orbiting Body: The celestial body the asteroid is currently orbiting.
+
+Step 3: Data Cleaning and Preparation for SQL Insertion
+A critical phase involved data cleaning to ensure the integrity, consistency, and proper formatting of the extracted data. This included:
+
+Value Type Conversion: All extracted values were meticulously checked and converted to their appropriate data types. For instance, numerical strings were converted to integers or floats, ensuring data accuracy for calculations and analysis.
+
+Handling Missing/Null Values: A robust strategy was implemented to manage any missing or null values in the dataset. The .get() method was primarily utilized to set default values where appropriate, or to gracefully skip incomplete records, preventing errors during subsequent processing.
+
+Date Object Conversion: Date strings received from the API were converted into proper Python datetime objects using the datetime.strptime() method. This standardization ensures accurate date-based filtering, sorting, and further temporal analysis.
+
+SQL Insertion Preparation: The final step in data preparation involved ensuring that the cleaned data matches the correct data types and structures required for seamless SQL insertion. This rigorous check prevents data type mismatches and structural inconsistencies when loading the data into a MySQL database.
+
+This comprehensive process ensures that the collected asteroid data is clean, well-structured, and ready for efficient storage and analysis within a MySQL database, forming a solid foundation for the subsequent phases of the NASA NEO tracking project.
