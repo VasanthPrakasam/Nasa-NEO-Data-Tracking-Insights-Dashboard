@@ -27,6 +27,7 @@ Filtering astronomical data in real-time
 A project powered by NASA’s trusted API, useful for educators, astronomers, data scientists, and policy analysts in evaluating asteroid threat levels and orbital behaviors.
 
 🔧 Step-by-Step Project Approach
+
 ✅ Step 1: Get NASA API Key
 Registered on https://api.nasa.gov to receive a personal API key.
 
@@ -36,6 +37,7 @@ bash
 Copy
 Edit
 https://api.nasa.gov/neo/rest/v1/feed?start_date=YYYY-MM-DD&end_date=YYYY-MM-DD&api_key=YOUR_KEY
+
 ✅ Step 2: Data Extraction (Python + API)
 Looping through NASA's paginated API using the next link.
 
@@ -85,7 +87,7 @@ Created sidebar with a selectbox() for query selection
 
 Used sliders, date pickers, and dropdowns to filter:
 
-Distance (AU/LD), Diameter, Speed, Hazardous State
+Distance (km), Diameter, Speed, Hazardous State
 
 Results are shown as live-updated tables from SQL database
 
@@ -96,22 +98,20 @@ Asteroids with miss_distance_lunar < 1	Detected all asteroids that passed closer
 Hazardous Asteroids	Filtered True/False on hazard flag
 Closest Approach Dates	Ordered results to show narrowing trajectory
 
-📁 Folder Structure (Recommended)
-bash
-Copy
-Edit
-├── nasa_neo.db                     # SQLite Database
-├── NASA_NEO_API_Extraction.ipynb  # Colab Notebook for Data Extraction
-├── Streamlit_UI.py                # Streamlit Dashboard File
-├── README.md                      # Project Summary
-└── requirements.txt               # Libraries used (streamlit, pandas, sqlite3)
+
 🛠 Tech Stack Used
+
 Tool	Purpose
-Python	API requests, data parsing, DB connection
-SQLite	Lightweight relational database
+
+1. GoogleColab - Python	API requests, data parsing, DB connection
+
+2. Packages - SQLite	Lightweight relational database
+
 SQL	Querying insights from structured tables
-Streamlit	Interactive dashboard interface
-NASA Open API	Data source
+
+3. Streamlit	Interactive dashboard interface
+
+4. NASA Open API	Data source
 
 🎯 Business Use Cases
 Asteroid Threat Monitoring – by size, speed, and approach frequency
